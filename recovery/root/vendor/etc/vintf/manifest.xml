@@ -1,6 +1,6 @@
 <!--
     Input:
-        manifest_target_level_q.xml
+        manifest_target_level_r.xml
         manifest_sensor_hidl_v2.xml
         manifest_audio.xml
         manifest_dsds.xml
@@ -16,6 +16,7 @@
         manifest_km4.xml
         manifest_tee.xml
         manifest_trustonic.xml
+        manifest_keyinstall.xml
         manifest_log.xml
         manifest_mdmonitor.xml
         manifest_aee.xml
@@ -25,7 +26,7 @@
         manifest_gnss.xml
         manifest.xml
 -->
-<manifest version="2.0" type="device" target-level="4">
+<manifest version="2.0" type="device" target-level="5">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -75,16 +76,6 @@
             <instance>internal/0</instance>
         </interface>
         <fqname>@2.6::ICameraProvider/internal/0</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.configstore</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>ISurfaceFlingerConfigs</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.1::ISurfaceFlingerConfigs/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.gatekeeper</name>
@@ -223,6 +214,16 @@
         <fqname>@1.1::IRadioConfig/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.renderscript</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IDevice</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.secure_element</name>
         <transport>hwbinder</transport>
         <version>1.2</version>
@@ -309,6 +310,16 @@
         <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.atms</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IATMs</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IATMs/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.mediatek.hardware.camera.bgservice</name>
         <transport>hwbinder</transport>
         <version>1.1</version>
@@ -319,6 +330,16 @@
         <fqname>@1.1::IBGService/internal/0</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.mediatek.hardware.camera.isphal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IISPModule</name>
+            <instance>internal/0</instance>
+        </interface>
+        <fqname>@1.0::IISPModule/internal/0</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.mediatek.hardware.engineermode</name>
         <transport>hwbinder</transport>
         <version>1.3</version>
@@ -327,6 +348,16 @@
             <instance>EmHidlServer</instance>
         </interface>
         <fqname>@1.3::IEmd/EmHidlServer</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.mediatek.hardware.keyinstall</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IKeyinstall</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IKeyinstall/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.mediatek.hardware.keymaster_attestation</name>
@@ -616,4 +647,5 @@
     <sepolicy>
         <version>30.0</version>
     </sepolicy>
+    <kernel target-level="5"/>
 </manifest>
